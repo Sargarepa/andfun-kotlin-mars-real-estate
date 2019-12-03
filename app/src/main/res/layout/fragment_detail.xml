@@ -22,6 +22,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- TODO (02) Add <data> declaration with DetailViewModel binding variable -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.marsrealestate.detail.DetailViewModel" />
+    </data>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,6 +46,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:imageUrl="@{viewModel.selectedProperty.imgSrcUrl}"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <!-- TODO (04) Add text attributes for type and value pointing to the values from the selectedProperty -->
@@ -54,6 +60,7 @@
                 android:textSize="39sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
+                android:text="@{viewModel.displayPropertyType}"
                 tools:text="To Rent" />
 
             <TextView
@@ -65,6 +72,7 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/property_type_text"
+                android:text="@{String.valueOf(viewModel.displayPropertyPrice)}"
                 tools:text="$100,000" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
